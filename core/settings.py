@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from core.secrets import SECRET_KEY
 from pathlib import Path
 from secrets import *
 
@@ -19,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dewdrop',
     'dewdrop_api',
-    # 'restframework'
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
