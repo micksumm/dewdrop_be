@@ -13,7 +13,10 @@ class Product(models.Model):
     
 class Condition(models.Model):
     type = models.CharField(max_length=100)
-    products = models.ManyToManyField(Product)
+    products = models.ManyToManyField(Product) #related_name 
+    #Product, related_name="conditions"
+    #Product.objects.get(id=2)
+    #prod.conditions.all()
 
     def __str__(self):
         return self.type
