@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dewdrop',
     'dewdrop_api',
-    'rest_framework'
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
