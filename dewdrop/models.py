@@ -1,32 +1,32 @@
 from django.db import models
 
 # Create your models here.
-
 class Product(models.Model):
-    name = models.CharField(max_length=100)
-    ingredients = models.CharField(max_length=100)
-    description = models.CharField(max_length=100)
+    name = models.CharField(max_length=20)
+    ingredients = models.TextField()
+    description = models.TextField()
     link = models.URLField()
 
     def __str__(self):
         return self.name
-    
+
 class Condition(models.Model):
-    type = models.CharField(max_length=100)
-    products = models.ManyToManyField(Product) #related_name 
-    #Product, related_name="conditions"
-    #Product.objects.get(id=2)
-    #prod.conditions.all()
+    type = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.type
+        return self.type 
 
-class Customer(models.Model):
+class ProductConditionSolution(models.Model):
+    product_id = models.ManyToManyField(Product)
+    condition_id = models.ManyToManyField(Condition)
+
+class Remedy(models.Model):
+    product_id = models.ForeignKey(Product, related_name='product', on_delete=models.CASCADE)
+    condition_id = models.ForeignKey(Condition, related_name='condition', on_delete=models.CASCADE)
+
+class User(models.Model):
     name = models.CharField(max_length=100)
-    email = models.EmailField(max_length=100)
-    conditions = models.ManyToManyField(Condition)
-    products = models.ManyToManyField(Product)
+    remedies = models.ManyToManyField(Remedy)
 
-    def __str__(self):
-        return self.name
+
 
