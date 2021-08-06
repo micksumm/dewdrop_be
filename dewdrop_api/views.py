@@ -7,12 +7,22 @@ class ProductList(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
     pass
 
+class ProductDetail(generics.RetrieveDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    pass
+
 class ConditionList(generics.ListCreateAPIView):
     queryset = Condition.objects.all()
     serializer_class = ConditionSerializer
     pass
 
-class ProductConditionSolutionList(generics.ListCreateAPIView):
+class ConditionDetail(generics.RetrieveDestroyAPIView):
+    queryset = Condition.objects.all()
+    serializer_class = ConditionSerializer
+    pass
+
+class ProductConditionSolutionList(generics.ListAPIView):
     queryset = ProductConditionSolution.objects.all()
     serializer_class = ProductConditionSolution
     pass
