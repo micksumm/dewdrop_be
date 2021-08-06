@@ -20,3 +20,5 @@ class ProductConditionSolutionSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductConditionSolution
         fields = ('conditions', 'products')
+
+
