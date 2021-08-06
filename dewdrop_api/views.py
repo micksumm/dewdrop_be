@@ -24,5 +24,5 @@ class ConditionDetail(generics.RetrieveDestroyAPIView):
 
 class ProductConditionSolutionList(generics.ListAPIView):
     queryset = ProductConditionSolution.objects.all()
-    serializer_class = ProductConditionSolution
+    serializer_class = ProductConditionSolutionSerializer
     pass
