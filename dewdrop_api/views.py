@@ -1,6 +1,6 @@
 from rest_framework import generics
-from dewdrop.models import Condition, Product, ProductConditionSolution
-from .serializers import ProductSerializer, ConditionSerializer, ProductConditionSolutionSerializer
+from dewdrop.models import Condition, Product # ProductConditionSolution
+from .serializers import ProductSerializer, ConditionSerializer #ProductConditionSolutionSerializer
 
 class ProductList(generics.ListCreateAPIView):
     queryset = Product.objects.all()
@@ -22,7 +22,7 @@ class ConditionDetail(generics.RetrieveDestroyAPIView):
     serializer_class = ConditionSerializer
     pass
 
-class ProductConditionSolutionList(generics.ListAPIView):
-    queryset = ProductConditionSolution.objects.all()
-    serializer_class = ProductConditionSolution
-    pass
+# class ProductConditionSolutionList(generics.ListAPIView):
+#     queryset = ProductConditionSolution.objects.all()
+#     serializer_class = ProductConditionSolutionSerializer
+#     pass
