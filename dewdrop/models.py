@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+from django.contrib import admin
 
 # Create your models here.
 
@@ -21,6 +22,19 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+# class ProductConditionInline(admin.TabularInline):
+#     model = Product.conditions.through
+
+# class ConditionAdmin(admin.ModelAdmin):
+#     inlines = [ProductConditionInline]
+
+# # class ConditionInline(admin.TabularInline):
+# #     model = Condition.products.through
+
+# class ProductAdmin(admin.ModelAdmin):
+#     inlines = [ProductConditionInline]
+#     exclude = ('conditions',)
+
 # class ProductConditionSolution(models.Model):
 #     product_id = models.ManyToManyField(Product)
 #     condition_id = models.ManyToManyField(Condition)
@@ -33,7 +47,6 @@ class Remedy(models.Model):
 class User(models.Model):
     name = models.CharField(max_length=100)
     # remedies 
-
 
 
 
