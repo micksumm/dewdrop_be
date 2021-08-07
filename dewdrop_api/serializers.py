@@ -5,7 +5,7 @@ from dewdrop.models import Condition, Product # ProductConditionSolution
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('name', 'ingredients', 'description', 'link' )
+        fields = ('name', 'ingredients', 'description', 'link', 'conditions' )
 
 class ConditionSerializer(serializers.ModelSerializer):
     class Meta:
