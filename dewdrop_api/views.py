@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, request
 from dewdrop.models import Condition, Product # ProductConditionSolution
 from .serializers import ProductSerializer, ConditionSerializer #ProductConditionSolutionSerializer
 
@@ -26,3 +26,20 @@ class ConditionDetail(generics.RetrieveDestroyAPIView):
 #     queryset = ProductConditionSolution.objects.all()
 #     serializer_class = ProductConditionSolutionSerializer
 #     pass
+
+# class ProductCondition(request):
+#     product = Product.objects.get(id=2)
+#     cond = Condition.objects.get(id=3)
+
+#     product.conditions.add(cond)
+#     product.save()
+
+# another view
+# class ProductDetail(generics.blahblah):
+    # product = Product.objects.get(id=user_id)
+    # product_json = {
+    #     'name': product.name,
+    #     'conditions': []
+    # }
+    # for condition in product.conditions.all():
+    #     product_json['conditions'].append(condition)

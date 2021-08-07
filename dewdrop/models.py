@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+from django.contrib import admin
 
 # Create your models here.
 
@@ -15,15 +16,11 @@ class Product(models.Model):
     ingredients = models.TextField()
     description = models.TextField()
     link = models.URLField()
-    conditions = models.ManyToManyField(Condition, related_name='products')
+    conditions = models.ManyToManyField(Condition) # related_name='products')
 
 
     def __str__(self):
         return self.name
-
-# class ProductConditionSolution(models.Model):
-#     product_id = models.ManyToManyField(Product)
-#     condition_id = models.ManyToManyField(Condition)
 
 class Remedy(models.Model):
     products = models.ManyToManyField(Product, related_name='product')
@@ -37,3 +34,20 @@ class User(models.Model):
 
 
 
+
+# class ProductConditionInline(admin.TabularInline):
+#     model = Product.conditions.through
+
+# class ConditionAdmin(admin.ModelAdmin):
+#     inlines = [ProductConditionInline]
+
+# # class ConditionInline(admin.TabularInline):
+# #     model = Condition.products.through
+
+# class ProductAdmin(admin.ModelAdmin):
+#     inlines = [ProductConditionInline]
+#     exclude = ('conditions',)
+
+# class ProductConditionSolution(models.Model):
+#     product_id = models.ManyToManyField(Product)
+#     condition_id = models.ManyToManyField(Condition)
